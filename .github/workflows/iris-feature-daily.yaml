@@ -22,8 +22,9 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           pip install -r ./iris/requirements.txt
-          
-      - name: execute python workflows from python file
-        env: 
-          HOPSWORKS_API_KEY: ${{ secrets.HOPSWORKS_API_KEY }}
-        run: python ./iris/iris-feature-pipeline-daily.py
+
+      - name: Make the shell file executable
+        run: chmod +x ./iris/run-iris.sh
+
+      - name: Run quarter daily feature addition and inference
+        run: bash ./iris/run-iris.sh
