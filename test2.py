@@ -17,10 +17,8 @@ hist_quantiles = {
     for quantile in quantiles
 }
 
-"""
 fig, ax = plt.subplots()
 ax.plot(X_1d, y, "o", alpha=0.5, markersize=1)
 for quantile, hist in hist_quantiles.items():
     ax.plot(X_1d, hist.predict(X), label=quantile)
 _ = ax.legend(loc="lower left")
-"""
