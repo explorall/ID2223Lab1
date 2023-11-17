@@ -27,4 +27,6 @@ jobs:
         run: chmod +x ./iris/run-iris.sh
 
       - name: Run quarter daily feature addition and inference
+        env: 
+          HOPSWORKS_API_KEY: ${{ secrets.HOPSWORKS_API_KEY }}
         run: bash ./iris/run-iris.sh
