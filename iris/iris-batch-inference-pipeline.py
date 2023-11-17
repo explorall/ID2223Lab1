@@ -18,7 +18,10 @@ def g():
     from PIL import Image
     from datetime import datetime
     import dataframe_image as dfi
+    from sklearn.neighbors import KNeighborsClassifier
+    from sklearn.metrics import accuracy_score
     from sklearn.metrics import confusion_matrix
+    from sklearn.metrics import classification_report
     from matplotlib import pyplot
     import seaborn as sns
     import requests
