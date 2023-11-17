@@ -28,7 +28,6 @@ def generate_flower(name, sepal_len_max, sepal_len_min, sepal_width_max, sepal_w
     df['variety'] = name
     return df
 
-
 def get_random_iris_flower():
     """
     Returns a DataFrame containing one random iris flower
