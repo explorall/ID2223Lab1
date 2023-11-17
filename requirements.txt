@@ -1,3 +1,7 @@
+hopsworks
+joblib
 scikit-learn==1.1.1
-numpy
-matplotlib
+seaborn
+dataframe-image
+modal
+gradio==3.14
