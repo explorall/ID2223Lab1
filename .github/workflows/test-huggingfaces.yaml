@@ -1,4 +1,4 @@
-name: test-inference
+name: test-huggingface-1
 
 on:
   workflow_dispatch:
@@ -24,4 +24,4 @@ jobs:
       - name: execute python workflows from python file
         env: 
           HOPSWORKS_API_KEY: ${{ secrets.HOPSWORKS_API_KEY }}
-        run: python ./iris/iris-batch-inference-pipeline.py
+        run: python ./iris/huggingface-spaces-iris/app.py
