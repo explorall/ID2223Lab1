@@ -36,9 +36,6 @@ def g():
     
     feature_view = fs.get_feature_view(name="iris", version=1)
     batch_data = feature_view.get_batch_data()
-    
-    #Why the heck does the program compare a static prediction on a snapshot with a up to date (-1) data set
-    #This decouples the prediction from the actual label ???
 
     y_pred = model.predict(batch_data)
     #print(y_pred)
