@@ -1,0 +1,1 @@
+python ./wine/wine-feature-pipeline-daily.py
