@@ -3,6 +3,10 @@
 To run the iris (and wine) notebooks I used the docker all-spark jupyter nootebook docker image for python 3.10 (I installed hopsworks from within the notebook). I ran the "daily" feature and inference pipelines 4 times a day (in order to have a slightly faster dataflow and see if it worked correctly quicker) using github actions instead of modal. The two apps were run on hugggingface gradio spaces, I had too change the requirements
 to include httpx==0.24.1 but appart from that I simply had to copy from the example code.
 
+https://huggingface.co/spaces/explorall/iris
+
+https://huggingface.co/spaces/explorall/iris-monitor
+
 ### Wine
 #### wine-eda-and-backfill-feature-group.ipynb
 This notebook is very similar to the Iris example. I first read the data and stored it in a pandas dataframe. I noticed that although many columns were missing some values no column was missing a lot. As such I chose to simply remove the rows were at least one value was missing. This removed roughly 30 out of 6500 row, aka neglible. I then drew paiplots and violinplots to roughly see what features were contributing to the quality and how. As it turned out the dataset was very evenly distributed across all qualities for all nearly all features with most features only having minor differences in mean and deviation. As such I chose to keep all features except for fixed acidity (which I deemed to be too closely distributed to add anything significant to the model) and let the model have as much data as possible to train with.
@@ -11,6 +15,8 @@ This notebook is very similar to the Iris example. I first read the data and sto
 As mentioned above I used all features except for fixed acidity in the feature view to create the training data. After testing a few models I settled on a scikit learn histogram gradient boosting classifier (HistGradientBoostingClassifier) with l2_regularization=3, max_iter=75 and learning rate=0.2. This model achieved an accuracy of 58\% which I considered good enough. In comparison a vanila K nearest neighbour model had an accuracy of roughly 36% and puerely guessing would have an accuracy 14%. Once the model was trained I saved it on hopsworks model registry togheter with the confusion matrix on the test data. The model is not very good at catching the outliers which there are few instances of e.g. 3, 4, 8 and 9, this is because the model was trained with equal weight on all labels prioritising getting as many correct as possible instead of finding high quality wine.
 
 ##### Gradio app
+https://huggingface.co/spaces/explorall/wine
+
 It it the same as the iris app but displays the result with a label instead of an image. The default values where set as the avereage values of for each parameter.
 
 ### wine-feature-pipeline-daily.py
@@ -21,4 +27,5 @@ Same as for Irirs with the main difference being that I save the predictions and
 
 ##### Gradio app
 https://huggingface.co/spaces/explorall/wine-monitor
+
 It it the same as the iris app but displays the result with a label instead of an image.
