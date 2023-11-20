@@ -18,3 +18,7 @@ Essentially the same as the iris program but with wine instead. The main differe
 
 ### wine-batch-inference-pipeline.py
 Same as for Irirs with the main difference being that I save the predictions and actual quality as textfiles instead of images as in Irirs.
+
+##### Gradio app
+https://huggingface.co/spaces/explorall/wine-monitor
+It it the same as the iris app but displays the result with a label instead of an image.
