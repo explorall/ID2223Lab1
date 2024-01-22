@@ -2,8 +2,8 @@ name: add-data-quarter-daily
 
 on:
   workflow_dispatch:
-  schedule:
-    - cron: "11 1,7,13,19 * * *"
+  #schedule:
+  #  - cron: "11 1,7,13,19 * * *"
 
 jobs:
   test_schedule:
