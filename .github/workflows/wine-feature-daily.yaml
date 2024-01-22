@@ -2,8 +2,8 @@ name: wine-feature-pipeline-quarter-daily
 
 on:
   workflow_dispatch:
-  schedule:
-    - cron: "11 4,10,16,22 * * *"
+#  schedule:
+#    - cron: "11 4,10,16,22 * * *"
 
 jobs:
   test_schedule:
